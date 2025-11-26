@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nhà nghỉ Chinh Tú – Gần Đại học Thành Đông</title>
+  <title>Nhà nghỉ Quỳnh Trinh – Gần Đại học Thành Đông</title>
   <style>
     :root {
       font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -481,9 +481,9 @@
   <header>
     <nav class="top-nav">
       <a class="brand" href="#">
-        <img class="logo-mark" src="image/logo.png" alt="Logo Nhà nghỉ Chinh Tú">
+        <img class="logo-mark" src="image/logo.png" alt="Logo Nhà nghỉ Quỳnh Trinh">
         <span class="brand-label">
-          <span>Chinh Tú</span>
+          <span>Quỳnh Trinh</span>
           <span>Guest House</span>
         </span>
       </a>
@@ -497,14 +497,14 @@
     </nav>
     <div class="hero">
       <div class="hero-content">
-        <p>Nhà nghỉ Chinh Tú</p>
+        <p>Nhà nghỉ Quỳnh Trinh</p>
         <h1>Lựa chọn tiện nghi gần Đại học Thành Đông</h1>
         <p>4 phòng sạch đẹp, giá tốt – thích hợp cho sinh viên, gia đình, khách công tác.</p>
         <p>Đầy đủ tiện nghi, dễ dàng di chuyển, dịch vụ thân thiện.</p>
       </div>
       <div class="hero-media">
-        <img src="image/whole-house-left.jpg" alt="Không gian phòng Nhà nghỉ Chinh Tú" loading="lazy">
-        <img src="image/whole-house-right.jpg" alt="Không gian phòng Nhà nghỉ Chinh Tú" loading="lazy">
+        <img src="image/whole-house-left.jpg" alt="Không gian phòng Nhà nghỉ Quỳnh Trinh" loading="lazy">
+        <img src="image/whole-house-right.jpg" alt="Không gian phòng Nhà nghỉ Quỳnh Trinh" loading="lazy">
       </div>
     </div>
   </header>
@@ -535,7 +535,7 @@
 
     <section class="card amenities" id="amenities">
       <div class="amenities-content">
-        <h2>Tiện ích đáng chú ý</h2>
+        <h2>Tiện ích nổi bật </h2>
         <ul>
           <li>Gần Đại học Thành Đông, thuận tiện cho sinh viên, phụ huynh, giảng viên.</li>
           <li>Khu tạp hóa, dịch vụ ăn uống, giặt ủi xung quanh đầy đủ.</li>
@@ -544,11 +544,6 @@
         </ul>
       </div>
       <div class="amenities-media">
-        <!-- <figure class="amenity-photo">
-          <img src="image/z7264335981917_8d650f053c68e1408c89b90e72064349.jpg"
-            alt="Nhà vệ sinh sạch sẽ tại Nhà nghỉ Chinh Tú" loading="lazy">
-          <figcaption>Nhà vệ sinh rộng rãi, vệ sinh hằng ngày.</figcaption>
-        </figure> -->
         <figure class="amenity-video">
           <video controls preload="metadata" poster="image/z7264335955751_f8be3e24940a3dd01827a92887413790.jpg">
             <source src="image/washing%20machine.mp4" type="video/mp4">
@@ -587,7 +582,7 @@
     </div>
 
     <section>
-      <iframe title="Bản đồ Nhà nghỉ Chinh Tú"
+      <iframe title="Bản đồ Nhà nghỉ Quỳnh Trinh"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.3488409672555!2d106.2850361!3d20.925139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDU1JzMwLjUiTiAxMDbCsDE3JzE1LjQiRQ!5e0!3m2!1svi!2svi!4v1712044800001!5m2!1svi!2svi"
         loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
       </iframe>
@@ -605,7 +600,7 @@
   </main>
 
   <footer>
-    © <span id="year"></span> Nhà nghỉ Chinh Tú. Luôn sẵn sàng chào đón bạn.
+    © <span id="year"></span> Nhà nghỉ Quỳnh Trinh. Luôn sẵn sàng chào đón bạn.
   </footer>
 
   <script>
@@ -622,6 +617,13 @@
       });
     });
 
+    document.querySelectorAll(".hero-media img").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        captionText.innerHTML = img.alt;
+      });
+    });
     document.querySelector(".close").onclick = function () {
       modal.style.display = "none";
     };
