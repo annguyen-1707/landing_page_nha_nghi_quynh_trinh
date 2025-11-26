@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nhà nghỉ Chinh Tú – Gần Đại học Thành Đông</title>
+  <style>
+    :root {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color-scheme: light;
+      --primary: #0b6ef6;
+      --secondary: #0ec5a6;
+      --accent: #f4b41a;
+      --text: #1f2933;
+      --muted: #5f6c80;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 32px 24px 72px;
+      background: linear-gradient(135deg, rgba(11, 110, 246, 0.95), rgba(14, 197, 166, 0.95)), url("image/z7264335908084_3b4ccfe5aff4387040c7f696ca8a5682.jpg") center/cover;
+      color: #fff;
+    }
+
+    .top-nav {
+      max-width: 1080px;
+      margin: 0 auto 40px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      justify-content: space-between;
+      padding: 18px 28px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.25);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .logo-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: #fff;
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.25);
+    }
+
+    .brand-label {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-label span:last-child {
+      font-size: 0.78rem;
+      font-weight: 400;
+      opacity: 0.8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: #fefefe;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      opacity: 0.9;
+      transition: opacity 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .cta.nav-cta {
+      padding: 10px 18px;
+      font-size: 0.92rem;
+      background: #fff;
+      color: var(--primary);
+      box-shadow: none;
+    }
+
+    .cta.nav-cta:hover {
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.25);
+    }
+
+    .hero {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      gap: 40px;
+      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .hero-content h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 6vw, 3rem);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content p {
+      margin: 0 0 10px;
+      font-size: clamp(1rem, 3vw, 1.15rem);
+      opacity: 0.95;
+    }
+
+    .hero-media {
+      position: relative;
+    }
+
+    main {
+      max-width: 1080px;
+      padding: 40px 20px 80px;
+      margin: 0 auto;
+    }
+
+    .rooms {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      margin-bottom: 36px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(15, 23, 42, 0.04);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.25rem;
+    }
+
+    .card .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .amenities {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* Video container */
+    .amenity-video {
+      margin: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+      max-height: 320px;
+      /* Giới hạn chiều cao video */
+      object-fit: cover;
+    }
+
+    /* Video full width */
+    .amenity-video video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+    }
+
+    /* Caption */
+    .amenity-video figcaption {
+      padding: 12px 14px;
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .amenities {
+        grid-template-columns: 1fr;
+      }
+
+      .amenity-video {
+        border-radius: 14px;
+      }
+
+      .amenity-video video {
+        border-radius: 14px;
+      }
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #fff;
+      background: var(--primary);
+      box-shadow: 0 15px 30px rgba(11, 110, 246, 0.25);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .cta.secondary {
+      background: var(--accent);
+      color: #1f2933;
+      box-shadow: 0 15px 30px rgba(244, 180, 26, 0.25);
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 35px rgba(11, 110, 246, 0.32);
+    }
+
+    .cta.secondary:hover {
+      box-shadow: 0 18px 35px rgba(244, 180, 26, 0.32);
+    }
+
+    iframe {
+      width: 100%;
+      height: 360px;
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .gallery-grid figure {
+      margin: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+
+    .gallery-grid figure:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-grid figcaption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 10px 14px;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.72));
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* Modal nền đen */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding-top: 70px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Ảnh phóng to */
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 60%;
+      /* chiếm 60% màn hình */
+      max-width: 800px;
+      /* không vượt quá 500px */
+      border-radius: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .modal-content {
+        width: 85%;
+        /* mobile chiếm 85% màn hình */
+        max-width: 280px;
+        /* tối đa 280px trên mobile */
+      }
+    }
+
+    /* Caption */
+    #caption {
+      text-align: center;
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    /* Nút đóng */
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .hero-media {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .hero-media img {
+      width: 50%;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 25px 65px rgba(15, 23, 42, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    @media (max-width: 600px) {
+      .hero-media {
+        flex-direction: column;
+      }
+
+      .hero-media img {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-nav {
+        flex-direction: column;
+        border-radius: 24px;
+      }
+    }
+
+    /* Contact section */
+    .contact {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 32px 20px;
+      margin: 60px auto;
+      max-width: 650px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact .cta {
+      padding: 14px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      color: white;
+      transition: 0.2s ease;
+      min-width: 160px;
+      text-align: center;
+    }
+
+    .contact .cta.zalo {
+      background: #0084ff;
+    }
+
+    .contact .cta.maps {
+      background: #f4b41a;
+    }
+
+    .contact .cta:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 600px) {
+      .contact .cta {
+        width: 100%;
+        min-width: unset;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact {
+        padding: 30px 15px;
+      }
+
+      .contact p {
+        font-size: 16px;
+      }
+
+      .contact .cta {
+        display: block;
+        margin: 10px auto;
+        width: 90%;
+      }
+    }
+
+    .gallery h2 {
+      margin-bottom: 16px;
+    }
+
+    #gallery {
+      margin-top: 40px;
+    }
+
+    #gallery .gallery-grid {
+      margin-top: 20px;
+    }
+
+    iframe {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="top-nav">
+      <a class="brand" href="#">
+        <img class="logo-mark" src="image/logo.png" alt="Logo Nhà nghỉ Chinh Tú">
+        <span class="brand-label">
+          <span>Chinh Tú</span>
+          <span>Guest House</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#rooms">Phòng</a>
+        <a href="#amenities">Tiện ích</a>
+        <a href="#gallery">Hình ảnh</a>
+        <a href="#contact">Liên hệ</a>
+      </div>
+      <a class="cta nav-cta" href="https://zalo.me/0382933627" target="_blank" rel="noopener noreferrer">Chat Zalo</a>
+    </nav>
+    <div class="hero">
+      <div class="hero-content">
+        <p>Nhà nghỉ Chinh Tú</p>
+        <h1>Lựa chọn tiện nghi gần Đại học Thành Đông</h1>
+        <p>4 phòng sạch đẹp, giá tốt – thích hợp cho sinh viên, gia đình, khách công tác.</p>
+        <p>Đầy đủ tiện nghi, dễ dàng di chuyển, dịch vụ thân thiện.</p>
+      </div>
+      <div class="hero-media">
+        <img src="image/whole-house-left.jpg" alt="Không gian phòng Nhà nghỉ Chinh Tú" loading="lazy">
+        <img src="image/whole-house-right.jpg" alt="Không gian phòng Nhà nghỉ Chinh Tú" loading="lazy">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="rooms" id="rooms">
+      <div class="card">
+        <h3>Phòng đơn 201</h3>
+        <p class="price">300.000đ / đêm</p>
+        <p>Không gian gọn gàng, phù hợp khách đi một mình hoặc cặp đôi.</p>
+      </div>
+      <div class="card">
+        <h3>Phòng gia đình 202</h3>
+        <p class="price">400.000đ / đêm</p>
+        <p>Diện tích rộng, thoải mái cho gia đình nhỏ hoặc nhóm bạn.</p>
+      </div>
+      <div class="card">
+        <h3>Phòng đơn 401</h3>
+        <p class="price">300.000đ / đêm</p>
+        <p>Trang bị đầy đủ, hướng gió thoáng mát, yên tĩnh.</p>
+      </div>
+      <div class="card">
+        <h3>Phòng đơn 402</h3>
+        <p class="price">300.000đ / đêm</p>
+        <p>Giải pháp tiết kiệm cho khách lưu trú dài ngày.</p>
+      </div>
+    </section>
+
+    <section class="card amenities" id="amenities">
+      <div class="amenities-content">
+        <h2>Tiện ích đáng chú ý</h2>
+        <ul>
+          <li>Gần Đại học Thành Đông, thuận tiện cho sinh viên, phụ huynh, giảng viên.</li>
+          <li>Khu tạp hóa, dịch vụ ăn uống, giặt ủi xung quanh đầy đủ.</li>
+          <li>Có máy giặt, sân phơi riêng và phòng vệ sinh sạch sẽ.</li>
+          <li>Có sân thượng chill chill</li>
+        </ul>
+      </div>
+      <div class="amenities-media">
+        <!-- <figure class="amenity-photo">
+          <img src="image/z7264335981917_8d650f053c68e1408c89b90e72064349.jpg"
+            alt="Nhà vệ sinh sạch sẽ tại Nhà nghỉ Chinh Tú" loading="lazy">
+          <figcaption>Nhà vệ sinh rộng rãi, vệ sinh hằng ngày.</figcaption>
+        </figure> -->
+        <figure class="amenity-video">
+          <video controls preload="metadata" poster="image/z7264335955751_f8be3e24940a3dd01827a92887413790.jpg">
+            <source src="image/washing%20machine.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+          </video>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card gallery" id="gallery">
+      <h2>Hình ảnh thực tế</h2>
+      <div class="gallery-grid">
+        <figure>
+          <img src="image/room201.png" alt="Phòng đơn 201 sáng sủa" loading="lazy">
+          <figcaption>Phòng đơn 201 sáng sủa</figcaption>
+        </figure>
+        <figure>
+          <img src="image/room202.png" alt="Phòng gia đình 202 rộng rãi" loading="lazy">
+          <figcaption>Phòng gia đình 202 rộng rãi</figcaption>
+        </figure>
+        <figure>
+          <img src="image/room401.png" alt="Hành lang thoáng mát" loading="lazy">
+          <figcaption>Phòng đơn 401 trên cao</figcaption>
+        </figure>
+        <figure>
+          <img src="image/room402.png" alt="Khu vực sinh hoạt chung sạch sẽ" loading="lazy">
+          <figcaption>Phòng đơn 402 thoải mái</figcaption>
+        </figure>
+      </div>
+    </section>
+    <!-- Modal xem ảnh -->
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImage">
+      <div id="caption"></div>
+    </div>
+
+    <section>
+      <iframe title="Bản đồ Nhà nghỉ Chinh Tú"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.3488409672555!2d106.2850361!3d20.925139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDU1JzMwLjUiTiAxMDbCsDE3JzE1LjQiRQ!5e0!3m2!1svi!2svi!4v1712044800001!5m2!1svi!2svi"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+      </iframe>
+    </section>
+
+    <section class="contact" id="contact">
+      <p>Đặt phòng hoặc hỏi thêm thông tin qua Zalo: <strong>0382 933 627</strong></p>
+      <div class="contact-buttons">
+        <a class="cta zalo" href="https://zalo.me/0382933627" target="_blank" rel="noopener noreferrer">Liên hệ Zalo</a>
+        <a class="cta maps"
+          href="https://www.google.com/maps/place/20%C2%B055'30.5%22N+106%C2%B017'15.4%22E/@20.9249886,106.2845534,17z/data=!4m10!1m5!8m4!1e4!2s111646482867594129619!3m1!1e1!3m3!8m2!3d20.9251389!4d106.2876111?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
+          target="_blank" rel="noopener noreferrer">Chia sẻ Google Maps</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Nhà nghỉ Chinh Tú. Luôn sẵn sàng chào đón bạn.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const captionText = document.getElementById("caption");
+
+    document.querySelectorAll(".gallery-grid img").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        captionText.innerHTML = img.alt;
+      });
+    });
+
+    document.querySelector(".close").onclick = function () {
+      modal.style.display = "none";
+    };
+  </script>
+</body>
+
+</html>
